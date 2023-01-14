@@ -63,15 +63,14 @@ public abstract class Transport<T extends Driver> implements Competing {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Transport transport = (Transport) o;
-        return Double.compare(transport.engineVolume, engineVolume) == 0 && Objects.equals(brand, transport.brand) && Objects.equals(model, transport.model);
+        Transport<?> transport = (Transport<?>) o;
+        return Double.compare(transport.engineVolume, engineVolume) == 0 && Objects.equals(brand, transport.brand) && Objects.equals(model, transport.model) && Objects.equals(driver, transport.driver);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(brand, model, engineVolume);
+        return Objects.hash(brand, model, engineVolume, driver);
     }
-
 
     @Override
     public String toString() {

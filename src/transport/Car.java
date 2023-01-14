@@ -34,7 +34,6 @@ public class Car extends Transport <Driver_B> {
 
     public Car(String brand, String model, double engineVolume, Driver_B driver) {
         super(brand, model, engineVolume, driver);
-        setBodyTypes(bodyTypes);
     }
 
     public BodyType[] getBodyTypes() {
