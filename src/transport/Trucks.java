@@ -1,8 +1,73 @@
 package transport;
 
 public class Trucks  extends Transport <Driver_C> {
+
+    private enum LoadCapacity {
+        N1(0F,3.5F),
+        N2(3.5F, 12.0F),
+        N3(12.0F, 0F);
+
+        private Float lowerLimitsOfLoadCapacity;
+        private Float upperLimitsOfLoadCapacity;
+
+
+        LoadCapacity(Float lowerLimitsOfLoadCapacity, Float upperLimitsOfLoadCapacity) {
+            setLowerLimitsOfLoadCapacity(lowerLimitsOfLoadCapacity);
+            setUpperLimitsOfLoadCapacity(upperLimitsOfLoadCapacity);
+        }
+
+        public Float getLowerLimitsOfLoadCapacity() {
+            return lowerLimitsOfLoadCapacity;
+        }
+
+        public void setLowerLimitsOfLoadCapacity(Float lowerLimitsOfLoadCapacity) {
+            if (lowerLimitsOfLoadCapacity == 0) {
+                this.lowerLimitsOfLoadCapacity = null;
+            } else {
+                this.lowerLimitsOfLoadCapacity = lowerLimitsOfLoadCapacity;
+            }
+
+        }
+
+        public Float getUpperLimitsOfLoadCapacity() {
+            return upperLimitsOfLoadCapacity;
+        }
+
+        public void setUpperLimitsOfLoadCapacity(Float upperLimitsOfLoadCapacity) {
+            if (upperLimitsOfLoadCapacity == 0) {
+                this.upperLimitsOfLoadCapacity = null;
+            } else {
+                this.upperLimitsOfLoadCapacity = upperLimitsOfLoadCapacity;
+                }
+            }
+
+        @Override
+        public String toString() {
+            if (lowerLimitsOfLoadCapacity == null) {
+                return "Грузоподъемность: до " + upperLimitsOfLoadCapacity + " тонн";
+            } else if (upperLimitsOfLoadCapacity == null) {
+                return "Грузоподъемность: от " + lowerLimitsOfLoadCapacity + " тонн";
+            } else {
+                return "Грузоподъемность: от " +
+                        lowerLimitsOfLoadCapacity
+                        +
+                        " тонн до " + upperLimitsOfLoadCapacity +
+                        " тонн.";
+            }
+        }
+    }
+
+    private LoadCapacity[] loadCapacities = new LoadCapacity[0];
     public Trucks(String brand, String model, double engineVolume, Driver_C driver) {
         super(brand, model, engineVolume, driver);
+    }
+
+    public LoadCapacity[] getLoadCapacities() {
+        return loadCapacities;
+    }
+
+    public void setLoadCapacities(LoadCapacity[] loadCapacities) {
+        this.loadCapacities = loadCapacities;
     }
 
     @Override
@@ -13,6 +78,15 @@ public class Trucks  extends Transport <Driver_C> {
     @Override
     public void finishMovement() {
         System.out.println("Закончил движение грузовой автомобиль марки: " + getBrand() + " " + getModel());
+    }
+
+    @Override
+    public void printType() {
+        if (loadCapacities == null) {
+            System.out.println("Данных по транспортному средству недостаточно");
+        } else {
+            System.out.println("Вместимость: " + loadCapacities);
+        }
     }
 
     @Override

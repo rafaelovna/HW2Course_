@@ -1,7 +1,7 @@
 package transport;
 
 public abstract class Driver {
-    private String name;
+    private final String name;
     private boolean driverLicense;
     private int experience;
 
