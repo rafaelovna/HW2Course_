@@ -45,4 +45,11 @@ public abstract class Driver {
 
     public abstract void refuelCar();
 
+
+    @Override
+    public String toString() {
+        return "Водитель: " + name +
+                ", Водительское удостоверение: " + driverLicense +
+                ", стаж: " + experience;
+    }
 }

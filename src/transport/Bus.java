@@ -1,9 +1,9 @@
 package transport;
 
-public class Bus extends Transport<Driver_D> {
+public class Bus extends Transport<DriverD> {
     public enum BusCapacity {
-        THE_SMALLEST(0, 10),
-        SMALL(0, 25),
+        THE_SMALLEST(null, 10),
+        SMALL(null, 25),
         AVERAGE(40,50),
         BIG(60,80),
         THE_BIGGEST(100,120);
@@ -12,13 +12,13 @@ public class Bus extends Transport<Driver_D> {
         private final Integer upperLimitsCapacityBus;
 
         BusCapacity(Integer lowerLimitsCapacityBus, Integer upperLimitsCapacityBus) {
-            if (lowerLimitsCapacityBus == 0) {
+            if (lowerLimitsCapacityBus == null) {
                this.lowerLimitsCapacityBus = null;
             } else {
                 this.lowerLimitsCapacityBus = lowerLimitsCapacityBus;
             }
 
-            if (upperLimitsCapacityBus == 0) {
+            if (upperLimitsCapacityBus == null) {
                 this.upperLimitsCapacityBus = null;
             } else {
                 this.upperLimitsCapacityBus = lowerLimitsCapacityBus;
@@ -37,6 +37,8 @@ public class Bus extends Transport<Driver_D> {
         public String toString() {
             if (lowerLimitsCapacityBus == null) {
                 return "Вместимость: до" + upperLimitsCapacityBus;
+            } else if (upperLimitsCapacityBus == null) {
+                return "Вместимость: от " + lowerLimitsCapacityBus;
             } else {
                 return "Вместимость: " + lowerLimitsCapacityBus +
                         " - " + upperLimitsCapacityBus + " мест.";
@@ -44,17 +46,17 @@ public class Bus extends Transport<Driver_D> {
         }
     }
 
-    private BusCapacity[] busCapacities = new BusCapacity[0];
+    private BusCapacity busCapacities;
 
-    public Bus(String brand, String model, double engineVolume, Driver_D driver) {
+    public Bus(String brand, String model, double engineVolume, DriverD driver, BusCapacity busCapacities) {
         super(brand, model, engineVolume, driver);
     }
 
-    public BusCapacity[] getBusCapacities() {
+    public BusCapacity getBusCapacities() {
         return busCapacities;
     }
 
-    public void setBusCapacities(BusCapacity[] busCapacities) {
+    public void setBusCapacities(BusCapacity busCapacities) {
         this.busCapacities = busCapacities;
     }
 

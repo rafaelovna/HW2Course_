@@ -1,11 +1,11 @@
 package transport;
 
-public class Trucks  extends Transport <Driver_C> {
+public class Trucks  extends Transport <DriverC> {
 
-    private enum LoadCapacity {
-        N1(0F,3.5F),
+    public enum LoadCapacity {
+        N1(null,3.5F),
         N2(3.5F, 12.0F),
-        N3(12.0F, 0F);
+        N3(12.0F, null);
 
         private Float lowerLimitsOfLoadCapacity;
         private Float upperLimitsOfLoadCapacity;
@@ -21,7 +21,7 @@ public class Trucks  extends Transport <Driver_C> {
         }
 
         public void setLowerLimitsOfLoadCapacity(Float lowerLimitsOfLoadCapacity) {
-            if (lowerLimitsOfLoadCapacity == 0) {
+            if (lowerLimitsOfLoadCapacity == null) {
                 this.lowerLimitsOfLoadCapacity = null;
             } else {
                 this.lowerLimitsOfLoadCapacity = lowerLimitsOfLoadCapacity;
@@ -34,7 +34,7 @@ public class Trucks  extends Transport <Driver_C> {
         }
 
         public void setUpperLimitsOfLoadCapacity(Float upperLimitsOfLoadCapacity) {
-            if (upperLimitsOfLoadCapacity == 0) {
+            if (upperLimitsOfLoadCapacity == null) {
                 this.upperLimitsOfLoadCapacity = null;
             } else {
                 this.upperLimitsOfLoadCapacity = upperLimitsOfLoadCapacity;
@@ -57,16 +57,16 @@ public class Trucks  extends Transport <Driver_C> {
         }
     }
 
-    private LoadCapacity[] loadCapacities = new LoadCapacity[0];
-    public Trucks(String brand, String model, double engineVolume, Driver_C driver) {
+    private LoadCapacity loadCapacities;
+    public Trucks(String brand, String model, double engineVolume, DriverC driver, LoadCapacity loadCapacities) {
         super(brand, model, engineVolume, driver);
     }
 
-    public LoadCapacity[] getLoadCapacities() {
+    public LoadCapacity getLoadCapacities() {
         return loadCapacities;
     }
 
-    public void setLoadCapacities(LoadCapacity[] loadCapacities) {
+    public void setLoadCapacities(LoadCapacity loadCapacities) {
         this.loadCapacities = loadCapacities;
     }
 
@@ -89,10 +89,7 @@ public class Trucks  extends Transport <Driver_C> {
         }
     }
 
-    @Override
-    public String toString() {
-        return "Грузовой автомобиль: "+ super.toString();
-    }
+
     @Override
     public void pit_stop() {
         System.out.println("Пит-стоп у грузового автомобиля");
@@ -112,5 +109,9 @@ public class Trucks  extends Transport <Driver_C> {
         int maxBound = 130;
         int maxSpeed =(int) (minBound + (maxBound-minBound) * Math.random());
         System.out.println("Максимальная скорость для грузового автомобиля " + maxSpeed);
+    }
+    @Override
+    public String toString() {
+        return "Грузовой автомобиль: "+ super.toString();
     }
 }

@@ -1,7 +1,7 @@
 package transport;
 
-public class Driver_D extends Driver {
-    public Driver_D (String name, boolean driverLicense, int experience) {
+public class DriverD extends Driver {
+    public DriverD(String name, boolean driverLicense, int experience) {
         super(name, driverLicense, experience);
     }
 
@@ -18,5 +18,10 @@ public class Driver_D extends Driver {
     @Override
     public void refuelCar() {
         System.out.println("Водитель категории D " + getName() + " заправляет авто");
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "Категория: D ";
     }
 }
