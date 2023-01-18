@@ -59,6 +59,12 @@ public abstract class Transport<T extends Driver> implements Competing {
     public abstract void printType();
 
 
+
+    public void passDiagnostics() throws RuntimeException {
+        System.out.println("Диагностику проходит: "+ getBrand()+" "+getModel());
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -1,30 +1,24 @@
 package transport;
 
-public abstract class Driver {
+public abstract class Driver extends DriverLicense {
+
     private final String name;
-    private boolean driverLicense;
     private int experience;
 
-    public Driver(String name, boolean driverLicense, int experience) {
+
+    public Driver(boolean driverLicense, String name, int experience) {
+        super(driverLicense);
         if (name == null || name.isBlank() || name.isEmpty()) {
             this.name = "default";
         } else {
             this.name = name;
         }
-        setDriverLicense(driverLicense);
         setExperience(experience);
     }
 
+
     public String getName() {
         return name;
-    }
-
-    public void setDriverLicense(boolean driverLicense) {
-        this.driverLicense = driverLicense;
-    }
-
-    public boolean isDriverLicense() {
-        return driverLicense;
     }
 
     public int getExperience() {
@@ -45,11 +39,14 @@ public abstract class Driver {
 
     public abstract void refuelCar();
 
+    //Добавила метод для выявления категорий.
+
+    public void findCategoryDriverLicense() throws SpecifyDriverLicenseTypeException {
+    }
 
     @Override
     public String toString() {
         return "Водитель: " + name +
-                ", Водительское удостоверение: " + driverLicense +
-                ", стаж: " + experience;
+                ", стаж: " + experience + super.toString();
     }
 }

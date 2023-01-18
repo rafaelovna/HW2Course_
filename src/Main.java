@@ -2,21 +2,26 @@ import transport.*;
 
 public class Main {
     public static void main(String[] args) {
-        DriverD alex = new DriverD("Alex cat. D", true, 20);
-        DriverD ivan = new DriverD("Ivan cat. D", true, 13);
-        DriverD fedor = new DriverD("Fedor cat. D", true, 6);
-        DriverD sergei = new DriverD("Sergei cat. D", true, 5);
-        DriverB igor = new DriverB("Igor cat. B", true, 1);
-        DriverB viktor = new DriverB("Viktor cat. B", true, 7);
-        DriverB oleg = new DriverB("Oleg cat. B", true, 11);
-        DriverB misha = new DriverB("Misha cat. B", true, 7);
-        DriverC vova = new DriverC("Vova cat. C", true, 6);
-        DriverC petya = new DriverC("Petya cat. C", true, 15);
-        DriverC kolya = new DriverC("Kolya cat. C", true, 8);
-        DriverC andrey = new DriverC("Andrey cat. C", true, 6);
+        DriverD alex = new DriverD(true, "Alex ", 20, null);
+        DriverD ivan = new DriverD( true, "Ivan ", 13, DriverD.FindCategory.D);
+        DriverD fedor = new DriverD(true, "Fedor ", 6, DriverD.FindCategory.D);
+        DriverD sergei = new DriverD(true, "Sergei ", 5, DriverD.FindCategory.D);
+        DriverB igor = new DriverB(true, "Igor cat ", 1, DriverB.FindCategory.B);
+        DriverB viktor = new DriverB(false, "Viktor ", 7, DriverB.FindCategory.B);
+        DriverB oleg = new DriverB(true, "Oleg", 11, DriverLicense.FindCategory.B);
+        DriverB misha = new DriverB(true, "Misha ", 7, DriverB.FindCategory.B);
+        DriverC vova = new DriverC(true, "Vova ", 6, DriverLicense.FindCategory.C);
+        DriverC petya = new DriverC(true, "Petya ", 15, DriverLicense.FindCategory.C);
+        DriverC kolya = new DriverC(true, "Kolya ", 8, DriverLicense.FindCategory.C);
+        DriverC andrey = new DriverC(true, "Andrey ", 6, DriverLicense.FindCategory.C);
 
-        Bus liaz = new Bus("ЛиАЗ", "529267", 8.6, alex, Bus.BusCapacity.AVERAGE);
+
+        findCategoryDriver(oleg, viktor,alex, ivan, fedor, sergei, igor, misha, vova, petya, kolya, andrey);
+
+
+        Bus liaz = new Bus("ЛиАЗ", "529267", 8.6, alex, Bus.BusCapacity.BIG);
         printInfo(liaz);
+        liaz.passDiagnostics();
 
         Bus higer = new Bus("Higer", "KLQ 6129", 9.5, ivan, Bus.BusCapacity.BIG);
         printInfo(higer);
@@ -35,6 +40,7 @@ public class Main {
 
         Car bmv = new Car("BMW", "Z8", 3.0, oleg, Car.BodyType.SEDAN);
         printInfo(bmv);
+        bmv.passDiagnostics();
 
         Car audi = new Car("Audi", "A8 50 L TDI quattro", 3.0, misha, Car.BodyType.CROSSOVER);
         printInfo(audi);
@@ -50,14 +56,24 @@ public class Main {
 
         Trucks shacman = new Trucks("Shacman", "X3000", 12.0, andrey, Trucks.LoadCapacity.N2);
         printInfo(shacman);
+        shacman.passDiagnostics();
 
+    }
 
-
+    public static void findCategoryDriver (Driver... drivers) {
+        for (Driver driver : drivers) {
+            try {
+                driver.findCategoryDriverLicense();
+            } catch (SpecifyDriverLicenseTypeException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
     private static void printInfo(Transport<?> transport) {
         System.out.println("Водитель " + transport.getDriver().getName() +
-                " со стажем "+ transport.getDriver().getExperience()+" лет, управляет автомобилем "
-                + transport.getBrand() + " " + transport.getModel()  + " и будет учавствовать в заезде");
+                " со стажем " + transport.getDriver().getExperience() + " лет, управляет автомобилем "
+                + transport.getBrand() + " " + transport.getModel());
     }
+
 }

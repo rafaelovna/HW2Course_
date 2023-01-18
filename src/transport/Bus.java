@@ -12,17 +12,8 @@ public class Bus extends Transport<DriverD> {
         private final Integer upperLimitsCapacityBus;
 
         BusCapacity(Integer lowerLimitsCapacityBus, Integer upperLimitsCapacityBus) {
-            if (lowerLimitsCapacityBus == null) {
-               this.lowerLimitsCapacityBus = null;
-            } else {
                 this.lowerLimitsCapacityBus = lowerLimitsCapacityBus;
-            }
-
-            if (upperLimitsCapacityBus == null) {
-                this.upperLimitsCapacityBus = null;
-            } else {
-                this.upperLimitsCapacityBus = lowerLimitsCapacityBus;
-            }
+                this.upperLimitsCapacityBus = upperLimitsCapacityBus;
         }
 
         public Integer getLowerLimitsCapacityBus() {
@@ -79,6 +70,10 @@ public class Bus extends Transport<DriverD> {
         }
     }
 
+    @Override
+    public void passDiagnostics() throws RuntimeException {
+        throw new RuntimeException("Автобусы диагностику проходить не могут!");
+    }
 
     @Override
     public void pit_stop() {

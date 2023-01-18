@@ -21,12 +21,7 @@ public class Trucks  extends Transport <DriverC> {
         }
 
         public void setLowerLimitsOfLoadCapacity(Float lowerLimitsOfLoadCapacity) {
-            if (lowerLimitsOfLoadCapacity == null) {
-                this.lowerLimitsOfLoadCapacity = null;
-            } else {
                 this.lowerLimitsOfLoadCapacity = lowerLimitsOfLoadCapacity;
-            }
-
         }
 
         public Float getUpperLimitsOfLoadCapacity() {
@@ -34,11 +29,7 @@ public class Trucks  extends Transport <DriverC> {
         }
 
         public void setUpperLimitsOfLoadCapacity(Float upperLimitsOfLoadCapacity) {
-            if (upperLimitsOfLoadCapacity == null) {
-                this.upperLimitsOfLoadCapacity = null;
-            } else {
                 this.upperLimitsOfLoadCapacity = upperLimitsOfLoadCapacity;
-                }
             }
 
         @Override
@@ -56,7 +47,6 @@ public class Trucks  extends Transport <DriverC> {
             }
         }
     }
-
     private LoadCapacity loadCapacities;
     public Trucks(String brand, String model, double engineVolume, DriverC driver, LoadCapacity loadCapacities) {
         super(brand, model, engineVolume, driver);
@@ -89,6 +79,10 @@ public class Trucks  extends Transport <DriverC> {
         }
     }
 
+    @Override
+    public void passDiagnostics() throws RuntimeException {
+        super.passDiagnostics();
+    }
 
     @Override
     public void pit_stop() {

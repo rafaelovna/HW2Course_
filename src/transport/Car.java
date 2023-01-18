@@ -64,6 +64,11 @@ public class Car extends Transport <DriverB> {
     }
 
     @Override
+    public void passDiagnostics() throws RuntimeException {
+        super.passDiagnostics();
+    }
+
+    @Override
     public String toString() {
         return "Легковой автомобиль: " + toString()+" "+ super.toString();
     }
