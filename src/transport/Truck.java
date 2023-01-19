@@ -1,6 +1,6 @@
 package transport;
 
-public class Trucks  extends Transport <DriverC> {
+public class Truck extends Transport <DriverC> {
 
     public enum LoadCapacity {
         N1(null,3.5F),
@@ -48,7 +48,7 @@ public class Trucks  extends Transport <DriverC> {
         }
     }
     private LoadCapacity loadCapacities;
-    public Trucks(String brand, String model, double engineVolume, DriverC driver, LoadCapacity loadCapacities) {
+    public Truck(String brand, String model, double engineVolume, DriverC driver, LoadCapacity loadCapacities) {
         super(brand, model, engineVolume, driver);
     }
 
@@ -80,7 +80,7 @@ public class Trucks  extends Transport <DriverC> {
     }
 
     @Override
-    public void passDiagnostics() throws RuntimeException {
+    public void passDiagnostics() {
         super.passDiagnostics();
     }
 
@@ -98,7 +98,7 @@ public class Trucks  extends Transport <DriverC> {
     }
 
     @Override
-    public void MaximumSpeed() {
+    public void maximumSpeed() {
         int minBound = 90;
         int maxBound = 130;
         int maxSpeed =(int) (minBound + (maxBound-minBound) * Math.random());

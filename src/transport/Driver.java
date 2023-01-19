@@ -41,8 +41,7 @@ public abstract class Driver extends DriverLicense {
 
     //Добавила метод для выявления категорий.
 
-    public void findCategoryDriverLicense() throws SpecifyDriverLicenseTypeException {
-    }
+    public abstract void findCategoryDriverLicense() throws SpecifyDriverLicenseTypeException;
 
     @Override
     public String toString() {

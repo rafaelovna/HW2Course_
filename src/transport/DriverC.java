@@ -8,7 +8,7 @@ public class DriverC extends Driver {
         this.findCategoryC = findCategoryC;
     }
 
-    FindCategory findCategoryC;
+   private FindCategory findCategoryC;
 
     public FindCategory getFindCategoryC() {
         return findCategoryC;

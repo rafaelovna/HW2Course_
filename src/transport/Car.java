@@ -64,7 +64,7 @@ public class Car extends Transport <DriverB> {
     }
 
     @Override
-    public void passDiagnostics() throws RuntimeException {
+    public void passDiagnostics() {
         super.passDiagnostics();
     }
 
@@ -87,7 +87,7 @@ public class Car extends Transport <DriverB> {
     }
 
     @Override
-    public void MaximumSpeed() {
+    public void maximumSpeed() {
         int minBound = 100;
         int maxBound = 160;
         int maxSpeed =(int) (minBound + (maxBound-minBound) * Math.random());

@@ -45,16 +45,16 @@ public class Main {
         Car audi = new Car("Audi", "A8 50 L TDI quattro", 3.0, misha, Car.BodyType.CROSSOVER);
         printInfo(audi);
 
-        Trucks isuzu = new Trucks("Isuzu", "Forward", 5.2, vova, Trucks.LoadCapacity.N3);
+        Truck isuzu = new Truck("Isuzu", "Forward", 5.2, vova, Truck.LoadCapacity.N3);
         printInfo(isuzu);
 
-        Trucks jac = new Trucks("JAC", "N350", 6.9, petya, Trucks.LoadCapacity.N1);
+        Truck jac = new Truck("JAC", "N350", 6.9, petya, Truck.LoadCapacity.N1);
         printInfo(jac);
 
-        Trucks volvo = new Trucks("Volvo", "VHD", 15.0, kolya, Trucks.LoadCapacity.N3);
+        Truck volvo = new Truck("Volvo", "VHD", 15.0, kolya, Truck.LoadCapacity.N3);
         printInfo(volvo);
 
-        Trucks shacman = new Trucks("Shacman", "X3000", 12.0, andrey, Trucks.LoadCapacity.N2);
+        Truck shacman = new Truck("Shacman", "X3000", 12.0, andrey, Truck.LoadCapacity.N2);
         printInfo(shacman);
         shacman.passDiagnostics();
 

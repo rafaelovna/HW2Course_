@@ -71,7 +71,7 @@ public class Bus extends Transport<DriverD> {
     }
 
     @Override
-    public void passDiagnostics() throws RuntimeException {
+    public void passDiagnostics() {
         throw new RuntimeException("Автобусы диагностику проходить не могут!");
     }
 
@@ -89,7 +89,7 @@ public class Bus extends Transport<DriverD> {
     }
 
     @Override
-    public void MaximumSpeed() {
+    public void maximumSpeed() {
         int minBound = 80;
         int maxBound = 120;
         int maxSpeed =(int) (minBound + (maxBound-minBound) * Math.random());
