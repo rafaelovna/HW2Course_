@@ -11,7 +11,7 @@ public class DriverLicense {
         D
     }
     private boolean driverLicense;
-    private FindCategory findCategory;
+
 
     public DriverLicense(boolean driverLicense) {
         this.driverLicense = driverLicense;
@@ -21,13 +21,10 @@ public class DriverLicense {
         return driverLicense;
     }
 
-    public FindCategory getFindCategory() {
-        return findCategory;
-    }
 
     @Override
     public String toString() {
-        return " Водительское удостоверение категории: " + driverLicense + " " + findCategory;
+        return " Водительское удостоверение категории: " + driverLicense;
     }
 }
 
