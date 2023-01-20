@@ -53,6 +53,6 @@ public class DriverB extends Driver{
 
     @Override
     public String toString() {
-        return super.toString() + "Категория: B ";
+        return super.toString() + ". Категория: " + findCategoryB;
     }
 }

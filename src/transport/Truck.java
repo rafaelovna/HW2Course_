@@ -48,8 +48,10 @@ public class Truck extends Transport <DriverC> {
         }
     }
     private LoadCapacity loadCapacities;
+
     public Truck(String brand, String model, double engineVolume, DriverC driver, LoadCapacity loadCapacities) {
         super(brand, model, engineVolume, driver);
+        this.loadCapacities = loadCapacities;
     }
 
     public LoadCapacity getLoadCapacities() {

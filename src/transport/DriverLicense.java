@@ -24,7 +24,7 @@ public class DriverLicense {
 
     @Override
     public String toString() {
-        return " Водительское удостоверение категории: " + driverLicense;
+        return " Водительское удостоверение: " + driverLicense + " ";
     }
 }
 

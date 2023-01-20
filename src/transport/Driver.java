@@ -46,6 +46,6 @@ public abstract class Driver extends DriverLicense {
     @Override
     public String toString() {
         return "Водитель: " + name +
-                ", стаж: " + experience + super.toString();
+                ", стаж: " + experience + " лет. " + super.toString();
     }
 }

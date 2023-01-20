@@ -41,6 +41,7 @@ public class Bus extends Transport<DriverD> {
 
     public Bus(String brand, String model, double engineVolume, DriverD driver, BusCapacity busCapacities) {
         super(brand, model, engineVolume, driver);
+        this.busCapacities = busCapacities;
     }
 
     public BusCapacity getBusCapacities() {

@@ -1,5 +1,7 @@
 package transport;
 
+import java.util.ArrayList;
+
 public class Car extends Transport <DriverB> {
     public enum BodyType{
         SEDAN( "Седан"),
@@ -23,6 +25,7 @@ public class Car extends Transport <DriverB> {
             return typeOfBody;
         }
 
+
         @Override
         public String toString() {
             return "Тип кузова: " + typeOfBody;
@@ -34,6 +37,7 @@ public class Car extends Transport <DriverB> {
 
     public Car(String brand, String model, double engineVolume, DriverB driver, BodyType bodyTypes) {
         super(brand, model, engineVolume, driver);
+        this.bodyTypes = bodyTypes;
     }
 
     public BodyType getBodyTypes() {
@@ -70,7 +74,7 @@ public class Car extends Transport <DriverB> {
 
     @Override
     public String toString() {
-        return "Легковой автомобиль: " + toString()+" "+ super.toString();
+        return "Легковой автомобиль: "+ super.toString();
     }
 
     @Override
