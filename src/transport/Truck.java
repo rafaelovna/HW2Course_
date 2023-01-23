@@ -1,9 +1,9 @@
 package transport;
 
-public class Truck extends Transport <DriverC> {
+public class Truck extends Transport<DriverC> {
 
     public enum LoadCapacity {
-        N1(null,3.5F),
+        N1(null, 3.5F),
         N2(3.5F, 12.0F),
         N3(12.0F, null);
 
@@ -21,7 +21,7 @@ public class Truck extends Transport <DriverC> {
         }
 
         public void setLowerLimitsOfLoadCapacity(Float lowerLimitsOfLoadCapacity) {
-                this.lowerLimitsOfLoadCapacity = lowerLimitsOfLoadCapacity;
+            this.lowerLimitsOfLoadCapacity = lowerLimitsOfLoadCapacity;
         }
 
         public Float getUpperLimitsOfLoadCapacity() {
@@ -29,8 +29,8 @@ public class Truck extends Transport <DriverC> {
         }
 
         public void setUpperLimitsOfLoadCapacity(Float upperLimitsOfLoadCapacity) {
-                this.upperLimitsOfLoadCapacity = upperLimitsOfLoadCapacity;
-            }
+            this.upperLimitsOfLoadCapacity = upperLimitsOfLoadCapacity;
+        }
 
         @Override
         public String toString() {
@@ -47,6 +47,7 @@ public class Truck extends Transport <DriverC> {
             }
         }
     }
+
     private LoadCapacity loadCapacities;
 
     public Truck(String brand, String model, double engineVolume, DriverC driver, LoadCapacity loadCapacities) {
@@ -95,7 +96,7 @@ public class Truck extends Transport <DriverC> {
     public void bestLapTime() {
         int minBound = 90;
         int maxBound = 140;
-        int bestLapTimeInMints =(int) (minBound + (maxBound-minBound) * Math.random());
+        int bestLapTimeInMints = (int) (minBound + (maxBound - minBound) * Math.random());
         System.out.println("Лучшее время круга для грузового автомобиля в минутах " + bestLapTimeInMints);
     }
 
@@ -103,11 +104,12 @@ public class Truck extends Transport <DriverC> {
     public void maximumSpeed() {
         int minBound = 90;
         int maxBound = 130;
-        int maxSpeed =(int) (minBound + (maxBound-minBound) * Math.random());
+        int maxSpeed = (int) (minBound + (maxBound - minBound) * Math.random());
         System.out.println("Максимальная скорость для грузового автомобиля " + maxSpeed);
     }
+
     @Override
     public String toString() {
-        return "Грузовой автомобиль: "+ super.toString();
+        return "Грузовой автомобиль: " + super.toString();
     }
 }

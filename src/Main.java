@@ -2,20 +2,19 @@ import transport.*;
 
 import java.sql.Array;
 import java.sql.JDBCType;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
 
 
-    public static List <Transport<?>> transport = new ArrayList<>();
+    public static List<Transport<?>> transport = new ArrayList<>();
     public static List<Car> carList = new ArrayList<>();
     public static List<Bus> busList = new ArrayList<>();
     public static List<Truck> truckList = new ArrayList<>();
 
     public static void main(String[] args) {
         DriverD alex = new DriverD(true, "Alex ", 20, DriverLicense.FindCategory.D);
-        DriverD ivan = new DriverD( true, "Ivan ", 13, DriverD.FindCategory.D);
+        DriverD ivan = new DriverD(true, "Ivan ", 13, DriverD.FindCategory.D);
         DriverD fedor = new DriverD(true, "Fedor ", 6, DriverD.FindCategory.D);
         DriverD sergei = new DriverD(true, "Sergei ", 5, DriverD.FindCategory.D);
         DriverB igor = new DriverB(true, "Igor cat ", 1, DriverB.FindCategory.B);
@@ -31,7 +30,7 @@ public class Main {
         Bus liaz = new Bus("ЛиАЗ", "529267", 8.6, alex, Bus.BusCapacity.BIG);
         Bus higer = new Bus("Higer", "KLQ 6129", 9.5, ivan, Bus.BusCapacity.BIG);
         Bus paz = new Bus("ПАЗ", "320405-04", 4.6, fedor, Bus.BusCapacity.SMALL);
-        Bus higer1 = new Bus("Higer", "KLQ 6128", 9.5, sergei, Bus.BusCapacity.THE_BIGGEST);
+        Bus higerOne = new Bus("HigerOne", "KLQ 6128", 9.5, sergei, Bus.BusCapacity.THE_BIGGEST);
         Car hyundai = new Car("Hyundai", "Avante", 1.6, igor, Car.BodyType.SEDAN);
         Car kia = new Car("Kia", "Sportage 4-го поколения", 1.8, viktor, Car.BodyType.HATCHBACK);
         Car bmv = new Car("BMW", "Z8", 3.0, oleg, Car.BodyType.SEDAN);
@@ -67,7 +66,7 @@ public class Main {
         transport.add(higer);
         transport.add(liaz);
         transport.add(isuzu);
-        transport.add(higer1);
+        transport.add(higerOne);
 //        System.out.println("Общее число транспортов, учавствующих в автогонках: " + transport.size());
         carList.add(audi);
         carList.add(bmv);
@@ -75,78 +74,99 @@ public class Main {
         carList.add(hyundai);
 //        System.out.println("Список легковых автомобилей: " + carList.size());
 
+        Mechanic<Transport<?>> petyaPetrov = new Mechanic<>("Petya Petrov", "OOO Ремонт");
+        Mechanic<Bus> sidorov = new Mechanic<>("Nikolay Sidorov", "АО Без проблем");
+        Mechanic<Transport<?>> limako = new Mechanic<>("Andrey Limako", "OOO Мы можем больше");
+        Mechanic<Car> fedorenko = new Mechanic<>("Michail Fedorenko", "OOO Ремонт");
+        Mechanic<Truck> petrov = new Mechanic<>("Andrey Petrov", "OOO Мы можем больше");
+        Mechanic<Transport<?>> dorohov = new Mechanic<>("Sergey Dorohov", "АО Без проблем");
 
-        Mechanic <Transport> petyaPetrov = new Mechanic<>("Petya Petrov", "OOO Ремонт");
-        Mechanic <Bus> sidorov = new Mechanic<>("Nikolay Sidorov", "АО Без проблем");
-        Mechanic <Transport> limako = new Mechanic<>("Andrey Limako", "OOO Мы можем больше");
-        Mechanic <Car> fedorenko = new Mechanic<>("Michail Fedorenko", "OOO Ремонт");
-        Mechanic <Truck> petrov = new Mechanic<>("Andrey Petrov", "OOO Мы можем больше");
-        Mechanic <Transport> dorohov = new Mechanic<>("Sergey Dorohov", "АО Без проблем");
+
+        CarService carService = new CarService();
 
 
-        sidorov.addTransport(higer);
-        sidorov.addTransport(higer1);
-        sidorov.addTransport(liaz);
-        limako.addTransport(shacman);
-        limako.addTransport(volvo);
-        limako.addTransport(jac);
-        fedorenko.addTransport(hyundai);
-        fedorenko.addTransport(bmv);
-        fedorenko.addTransport(audi);
-        fedorenko.addTransport(kia);
-        petrov.addTransport(jac);
-        petrov.addTransport(shacman);
-        petrov.addTransport(isuzu);
-        dorohov.addTransport(volvo);
-        dorohov.addTransport(liaz);
-        dorohov.addTransport(paz);
-        dorohov.addTransport(higer1);
-        petyaPetrov.addTransport(kia);
-        petyaPetrov.addTransport(bmv);
-        petyaPetrov.addTransport(paz);
+// метод добавить транспорт на  техобслуживание.
 
-        // метод вывести водителя авто с именем и механиками
 
-        kia.getMechanic().add(fedorenko);
-        kia.getMechanic().add(petyaPetrov);
-        higer.getMechanic().add(sidorov);
-        higer1.getMechanic().add(sidorov);
-        higer1.getMechanic().add(dorohov);
-        liaz.getMechanic().add(sidorov);
-        liaz.getMechanic().add(dorohov);
-        shacman.getMechanic().add(limako);
-        shacman.getMechanic().add(petrov);
-        volvo.getMechanic().add(dorohov);
-        volvo.getMechanic().add(limako);
-        jac.getMechanic().add(limako);
-        jac.getMechanic().add(petrov);
-        isuzu.getMechanic().add(petrov);
-        paz.getMechanic().add(dorohov);
-        paz.getMechanic().add(petyaPetrov);
-        bmv.getMechanic().add(petrov);
-        hyundai.getMechanic().add(fedorenko);
-        audi.getMechanic().add(fedorenko);
+//        carService.addTransport(higer);
+//        carService.addTransport(higerOne);
+//        carService.addTransport(liaz);
+//        carService.addTransport(paz);
+//        carService.addTransport(paz);
+//        carService.addTransport(higerOne);
+//        carService.addTransport(liaz);
+        carService.addTransport(shacman);
+        carService.addTransport(volvo);
+        carService.addTransport(jac);
+        carService.addTransport(hyundai);
+        carService.addTransport(bmv);
+        carService.addTransport(audi);
+        carService.addTransport(kia);
+        carService.addTransport(jac);
+        carService.addTransport(shacman);
+        carService.addTransport(isuzu);
+        carService.addTransport(volvo);
+        carService.addTransport(kia);
+        carService.addTransport(bmv);
+
+        // метод пройти ТО
+
+
+//        carService.undergoMaintenance();
+//        carService.undergoMaintenance();
+//        carService.undergoMaintenance();
+//        carService.undergoMaintenance();
+//        carService.undergoMaintenance();
+//        carService.undergoMaintenance();
+//        carService.undergoMaintenance();
+//        carService.undergoMaintenance();
+//        carService.undergoMaintenance();
+//        carService.undergoMaintenance();
+//        carService.undergoMaintenance();
+//        carService.undergoMaintenance();
+
+
+        // метод вывести авто с механиками
+
+
+        higer.putTransport(sidorov);
+        higerOne.putTransport(sidorov);
+        higerOne.putTransport(dorohov);
+        liaz.putTransport(sidorov);
+        liaz.putTransport(dorohov);
+        shacman.putTransport(limako);
+        shacman.putTransport(petrov);
+        volvo.putTransport(dorohov);
+        volvo.putTransport(limako);
+        jac.putTransport(limako);
+        jac.putTransport(petrov);
+        isuzu.putTransport(petrov);
+        paz.putTransport(dorohov);
+        paz.putTransport(petyaPetrov);
+        bmv.putTransport(petrov);
+        hyundai.putTransport(fedorenko);
+        audi.putTransport(fedorenko);
+
+
+        System.out.println(Transport.getMechanics());
 
         //метод вывести водителя авто с именем и механиками
-        findCarData(kia,higer1,hyundai,higer,liaz,shacman,volvo,jac,isuzu,paz,bmv,audi);
+        //       findCarData(kia,higerOne,hyundai,higer,liaz,shacman,volvo,jac,isuzu,paz,bmv,audi);
 
 
         // метод починить машину
-        fixTheCar(petyaPetrov,sidorov,limako,fedorenko,petrov,dorohov);
+//        fixTheCar(petyaPetrov,sidorov,limako,fedorenko,petrov,dorohov);
 
 
         // метод провести техобслуживание.
-        performMaintenance(limako);
-        performMaintenance(dorohov);
-        performMaintenance(petrov);
-        performMaintenance(petyaPetrov);
-        performMaintenance(fedorenko);
-        performMaintenance(sidorov);
+//        performMaintenance(limako);
+//        performMaintenance(dorohov);
+//        performMaintenance(petrov);
+//        performMaintenance(petyaPetrov);
+//        performMaintenance(fedorenko);
+//        performMaintenance(sidorov);
 
-
-
-
-}
+    }
 
     public static void findCarData(Transport... transport) {
         for (Transport transport1 : transport) {
@@ -154,19 +174,19 @@ public class Main {
         }
     }
 
-    public static void fixTheCar (Mechanic... mechanics) {
+    public static void fixTheCar(Mechanic... mechanics) {
         for (Mechanic mechanic : mechanics) {
             mechanic.fixTheCar();
         }
     }
 
-    public static void performMaintenance (Mechanic... mechanics) {
+    public static void performMaintenance(Mechanic... mechanics) {
         for (Mechanic mechanic : mechanics) {
-                mechanic.performMaintenance();
+            mechanic.performMaintenance();
         }
     }
 
-    public static void findCategoryDriver (Driver... drivers) {
+    public static void findCategoryDriver(Driver... drivers) {
         for (Driver driver : drivers) {
             try {
                 driver.findCategoryDriverLicense();

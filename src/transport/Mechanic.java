@@ -1,13 +1,12 @@
 package transport;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.HashSet;
+import java.util.Set;
 
-public class Mechanic <T extends Transport>{
-    private String name;
-    private String company;
-    private Queue<T> typeOfCar = new LinkedList<>();
+public class Mechanic<T extends Transport<?>> {
+    private final String name;
+    private final String company;
+
 
     public Mechanic(String name, String company) {
         this.name = name;
@@ -23,36 +22,19 @@ public class Mechanic <T extends Transport>{
         return company;
     }
 
-    public Queue<T> getTypeOfCar() {
-        return typeOfCar;
-    }
-
-
-    public void addTransport(T transport) {
-        typeOfCar.add(transport);
-    }
-
 
     //Метод провести техобслуживание.
     public void performMaintenance() {
-        T transport = typeOfCar.peek();
-        if (transport != null) {
-            transport.passDiagnostics();
-            System.out.println(transport + " прошёл техобслуживание!");
-        }
+        System.out.println("Механик " + name + " из компании " + company + " проводит техобслуживание!");
     }
 
     //Метод починить машину.
     public void fixTheCar() {
-        T transport = typeOfCar.poll();
-        if (transport != null) {
-            System.out.println("Механик " + name
-                    + ", из компании - "
-                    + company + ", чинит: "
-                    + transport);
-            fixTheCar();
-        }
+        System.out.println("Механик " + name
+                + ", из компании - "
+                + company + ", чинит автомобиль");
     }
+
 
     @Override
     public String toString() {
