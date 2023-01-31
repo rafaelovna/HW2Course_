@@ -30,4 +30,16 @@ public class CarService {
         this.typeOfCar = typeOfCar;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CarService that = (CarService) o;
+        return Objects.equals(typeOfCar, that.typeOfCar);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(typeOfCar);
+    }
 }

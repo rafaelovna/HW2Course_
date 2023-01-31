@@ -14,40 +14,40 @@ public class Main {
 
     public static void main(String[] args) {
 
-        HashSet<Driver> driversSet = new HashSet<>();
-
-        DriverD alex = new DriverD(true, "Alex ", 20, DriverLicense.FindCategory.D);
-        DriverD alex2 = new DriverD(true, "Alex ", 20, DriverLicense.FindCategory.D);
-        DriverD alex3 = new DriverD(true, "Alex ", 20, DriverLicense.FindCategory.D);
-        DriverD alex4 = new DriverD(true, "Alex ", 20, DriverLicense.FindCategory.D);
-        DriverD ivan = new DriverD(true, "Ivan ", 13, DriverD.FindCategory.D);
-        DriverD fedor = new DriverD(true, "Fedor ", 6, DriverD.FindCategory.D);
-        DriverD sergei = new DriverD(true, "Sergei ", 5, DriverD.FindCategory.D);
-        DriverB igor = new DriverB(true, "Igor ", 1, DriverB.FindCategory.B);
-        DriverB viktor = new DriverB(true, "Viktor ", 7, DriverB.FindCategory.B);
-        DriverB oleg = new DriverB(true, "Oleg", 11, DriverLicense.FindCategory.B);
-        DriverB misha = new DriverB(true, "Misha ", 7, DriverB.FindCategory.B);
-        DriverC vova = new DriverC(true, "Vova ", 6, DriverLicense.FindCategory.C);
-        DriverC petya = new DriverC(true, "Petya ", 15, DriverLicense.FindCategory.C);
-        DriverC kolya = new DriverC(true, "Kolya ", 8, DriverLicense.FindCategory.C);
-        DriverC andrey = new DriverC(true, "Andrey ", 6, DriverLicense.FindCategory.C);
-        driversSet.add(alex);
-        driversSet.add(alex2);
-        driversSet.add(alex3);
-        driversSet.add(alex4);
-        driversSet.add(ivan);
-        driversSet.add(fedor);
-        driversSet.add(sergei);
-        driversSet.add(igor);
-        driversSet.add(viktor);
-        driversSet.add(oleg);
-        driversSet.add(misha);
-        driversSet.add(vova);
-        driversSet.add(petya);
-        driversSet.add(kolya);
-        driversSet.add(andrey);
-        System.out.println(driversSet);
-
+//        HashSet<Driver> driversSet = new HashSet<>();
+//
+//        DriverD alex = new DriverD(true, "Alex ", 20, DriverLicense.FindCategory.D);
+//        DriverD alex2 = new DriverD(true, "Alex ", 20, DriverLicense.FindCategory.D);
+//        DriverD alex3 = new DriverD(true, "Alex ", 20, DriverLicense.FindCategory.D);
+//        DriverD alex4 = new DriverD(true, "Alex ", 20, DriverLicense.FindCategory.D);
+//        DriverD ivan = new DriverD(true, "Ivan ", 13, DriverD.FindCategory.D);
+//        DriverD fedor = new DriverD(true, "Fedor ", 6, DriverD.FindCategory.D);
+//        DriverD sergei = new DriverD(true, "Sergei ", 5, DriverD.FindCategory.D);
+//        DriverB igor = new DriverB(true, "Igor ", 1, DriverB.FindCategory.B);
+//        DriverB viktor = new DriverB(true, "Viktor ", 7, DriverB.FindCategory.B);
+//        DriverB oleg = new DriverB(true, "Oleg", 11, DriverLicense.FindCategory.B);
+//        DriverB misha = new DriverB(true, "Misha ", 7, DriverB.FindCategory.B);
+//        DriverC vova = new DriverC(true, "Vova ", 6, DriverLicense.FindCategory.C);
+//        DriverC petya = new DriverC(true, "Petya ", 15, DriverLicense.FindCategory.C);
+//        DriverC kolya = new DriverC(true, "Kolya ", 8, DriverLicense.FindCategory.C);
+//        DriverC andrey = new DriverC(true, "Andrey ", 6, DriverLicense.FindCategory.C);
+//        driversSet.add(alex);
+//        driversSet.add(alex2);
+//        driversSet.add(alex3);
+//        driversSet.add(alex4);
+//        driversSet.add(ivan);
+//        driversSet.add(fedor);
+//        driversSet.add(sergei);
+//        driversSet.add(igor);
+//        driversSet.add(viktor);
+//        driversSet.add(oleg);
+//        driversSet.add(misha);
+//        driversSet.add(vova);
+//        driversSet.add(petya);
+//        driversSet.add(kolya);
+//        driversSet.add(andrey);
+//        System.out.println(driversSet);
+//
 //        Iterator<Driver> iterator = driversSet.iterator();
 //        while (iterator.hasNext()) {
 //            Driver driver = iterator.next();
@@ -57,18 +57,18 @@ public class Main {
 //        addDriver(alex,alex,alex,ivan,fedor,sergei,igor,viktor,oleg,misha,viktor, vova,petya,petya,kolya,andrey,andrey);
 
 
-        Bus liaz = new Bus("ЛиАЗ", "529267", 8.6, alex, Bus.BusCapacity.BIG);
-        Bus higer = new Bus("Higer", "KLQ 6129", 9.5, ivan, Bus.BusCapacity.BIG);
-        Bus paz = new Bus("ПАЗ", "320405-04", 4.6, fedor, Bus.BusCapacity.SMALL);
-        Bus higerOne = new Bus("HigerOne", "KLQ 6128", 9.5, sergei, Bus.BusCapacity.THE_BIGGEST);
-        Car hyundai = new Car("Hyundai", "Avante", 1.6, igor, Car.BodyType.SEDAN);
-        Car kia = new Car("Kia", "Sportage 4-го поколения", 1.8, viktor, Car.BodyType.HATCHBACK);
-        Car bmv = new Car("BMW", "Z8", 3.0, oleg, Car.BodyType.SEDAN);
-        Car audi = new Car("Audi", "A8 50 L TDI quattro", 3.0, misha, Car.BodyType.CROSSOVER);
-        Truck isuzu = new Truck("Isuzu", "Forward", 5.2, vova, Truck.LoadCapacity.N3);
-        Truck jac = new Truck("JAC", "N350", 6.9, petya, Truck.LoadCapacity.N1);
-        Truck volvo = new Truck("Volvo", "VHD", 15.0, kolya, Truck.LoadCapacity.N3);
-        Truck shacman = new Truck("Shacman", "X3000", 12.0, andrey, Truck.LoadCapacity.N2);
+//        Bus liaz = new Bus("ЛиАЗ", "529267", 8.6, alex, Bus.BusCapacity.BIG);
+//        Bus higer = new Bus("Higer", "KLQ 6129", 9.5, ivan, Bus.BusCapacity.BIG);
+//        Bus paz = new Bus("ПАЗ", "320405-04", 4.6, fedor, Bus.BusCapacity.SMALL);
+//        Bus higerOne = new Bus("HigerOne", "KLQ 6128", 9.5, sergei, Bus.BusCapacity.THE_BIGGEST);
+//        Car hyundai = new Car("Hyundai", "Avante", 1.6, igor, Car.BodyType.SEDAN);
+//        Car kia = new Car("Kia", "Sportage 4-го поколения", 1.8, viktor, Car.BodyType.HATCHBACK);
+//        Car bmv = new Car("BMW", "Z8", 3.0, oleg, Car.BodyType.SEDAN);
+//        Car audi = new Car("Audi", "A8 50 L TDI quattro", 3.0, misha, Car.BodyType.CROSSOVER);
+//        Truck isuzu = new Truck("Isuzu", "Forward", 5.2, vova, Truck.LoadCapacity.N3);
+//        Truck jac = new Truck("JAC", "N350", 6.9, petya, Truck.LoadCapacity.N1);
+//        Truck volvo = new Truck("Volvo", "VHD", 15.0, kolya, Truck.LoadCapacity.N3);
+//        Truck shacman = new Truck("Shacman", "X3000", 12.0, andrey, Truck.LoadCapacity.N2);
 //        printInfo(shacman);
 //        printInfo(volvo);
 //        printInfo(jac);
@@ -104,12 +104,12 @@ public class Main {
 //        carList.add(hyundai);
 //        System.out.println("Список легковых автомобилей: " + carList.size());
 
-        Mechanic<Transport<?>> petyaPetrov = new Mechanic<>("Petya Petrov", "OOO Ремонт");
-        Mechanic<Bus> sidorov = new Mechanic<>("Nikolay Sidorov", "АО Без проблем");
-        Mechanic<Transport<?>> limako = new Mechanic<>("Andrey Limako", "OOO Мы можем больше");
-        Mechanic<Car> fedorenko = new Mechanic<>("Michail Fedorenko", "OOO Ремонт");
-        Mechanic<Truck> petrov = new Mechanic<>("Andrey Petrov", "OOO Мы можем больше");
-        Mechanic<Transport<?>> dorohov = new Mechanic<>("Sergey Dorohov", "АО Без проблем");
+//        Mechanic<Transport<?>> petyaPetrov = new Mechanic<>("Petya Petrov", "OOO Ремонт");
+//        Mechanic<Bus> sidorov = new Mechanic<>("Nikolay Sidorov", "АО Без проблем");
+//        Mechanic<Transport<?>> limako = new Mechanic<>("Andrey Limako", "OOO Мы можем больше");
+//        Mechanic<Car> fedorenko = new Mechanic<>("Michail Fedorenko", "OOO Ремонт");
+//        Mechanic<Truck> petrov = new Mechanic<>("Andrey Petrov", "OOO Мы можем больше");
+//        Mechanic<Transport<?>> dorohov = new Mechanic<>("Sergey Dorohov", "АО Без проблем");
 
 //        CarService carService = new CarService();
 
